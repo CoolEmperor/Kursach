@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{18F3D214-1552-4724-999D-D0FAFE44A0AC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Мастерская</RootNamespace>
+    <AssemblyName>Мастерская</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdmin.Designer.cs">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAut.Designer.cs">
+      <DependentUpon>FormAut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormManag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormManag.Designer.cs">
+      <DependentUpon>FormManag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMaster.Designer.cs">
+      <DependentUpon>FormMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormModelDevice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModelDevice.Designer.cs">
+      <DependentUpon>FormModelDevice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOrderAcc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrderAcc.Designer.cs">
+      <DependentUpon>FormOrderAcc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOrderDiagnostics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrderDiagnostics.Designer.cs">
+      <DependentUpon>FormOrderDiagnostics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOrderRepair.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrderRepair.Designer.cs">
+      <DependentUpon>FormOrderRepair.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSpentMat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSpentMat.Designer.cs">
+      <DependentUpon>FormSpentMat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTypeBreak.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTypeBreak.Designer.cs">
+      <DependentUpon>FormTypeBreak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTypeDevice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTypeDevice.Designer.cs">
+      <DependentUpon>FormTypeDevice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTypeTechnick.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTypeTechnick.Designer.cs">
+      <DependentUpon>FormTypeTechnick.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormWork.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWork.Designer.cs">
+      <DependentUpon>FormWork.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="МастерскаяDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>МастерскаяDataSet.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormAdmin.resx">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAut.resx">
+      <DependentUpon>FormAut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormManag.resx">
+      <DependentUpon>FormManag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMaster.resx">
+      <DependentUpon>FormMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormModelDevice.resx">
+      <DependentUpon>FormModelDevice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOrderAcc.resx">
+      <DependentUpon>FormOrderAcc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOrderDiagnostics.resx">
+      <DependentUpon>FormOrderDiagnostics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOrderRepair.resx">
+      <DependentUpon>FormOrderRepair.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSpentMat.resx">
+      <DependentUpon>FormSpentMat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTypeBreak.resx">
+      <DependentUpon>FormTypeBreak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTypeDevice.resx">
+      <DependentUpon>FormTypeDevice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTypeTechnick.resx">
+      <DependentUpon>FormTypeTechnick.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormWork.resx">
+      <DependentUpon>FormWork.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="МастерскаяDataSet.xsc">
+      <DependentUpon>МастерскаяDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="МастерскаяDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>МастерскаяDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="МастерскаяDataSet.xss">
+      <DependentUpon>МастерскаяDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
