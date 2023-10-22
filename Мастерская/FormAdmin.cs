@@ -192,23 +192,39 @@ namespace Мастерская
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            int selectedEmployeeId = (int)dataGridView1.CurrentRow.Cells[0].Value;
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            FormDelete f = new FormDelete();
+            f.ShowDialog();
+            try
             {
-                connection.Open();
-
-                using (SqlCommand command = new SqlCommand("DeleteEmployee", connection))
+                bool DeleteBool = FormDelete.DeleteBool;
+                if (DeleteBool == true)
                 {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@ИдСотрудника", selectedEmployeeId);
-                    command.ExecuteNonQuery();
+
+                    int selectedEmployeeId = (int)dataGridView1.CurrentRow.Cells[0].Value;
+
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        using (SqlCommand command = new SqlCommand("DeleteEmployee", connection))
+                        {
+                            command.CommandType = CommandType.StoredProcedure;
+                            command.Parameters.AddWithValue("@ИдСотрудника", selectedEmployeeId);
+                            command.ExecuteNonQuery();
+                        }
+
+                        FillDataGridView();
+
+                        MessageBox.Show("Данные удалены успешно.");
+                    }
                 }
-
-                FillDataGridView();
-
-                MessageBox.Show("Данные удалены успешно.");
             }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Строка не может быть удалена!!!",
+               "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
 
         }
 

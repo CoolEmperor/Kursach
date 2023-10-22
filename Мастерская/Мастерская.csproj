@@ -58,6 +58,12 @@
     <Compile Include="FormAut.Designer.cs">
       <DependentUpon>FormAut.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDelete.Designer.cs">
+      <DependentUpon>FormDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormManag.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAut.resx">
       <DependentUpon>FormAut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDelete.resx">
+      <DependentUpon>FormDelete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormManag.resx">
       <DependentUpon>FormManag.cs</DependentUpon>
