@@ -82,7 +82,7 @@ namespace Мастерская
             {
                 connection.Open();
 
-                using (SqlCommand command = new SqlCommand("AddWork", connection))
+                using (SqlCommand command = new SqlCommand("InsertWork", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@Название", name);
