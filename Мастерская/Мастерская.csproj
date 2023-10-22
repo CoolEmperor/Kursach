@@ -52,6 +52,12 @@
     <Compile Include="FormAdmin.Designer.cs">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAdminData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdminData.Designer.cs">
+      <DependentUpon>FormAdminData.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAut.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </Compile>
     <EmbeddedResource Include="FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdminData.resx">
+      <DependentUpon>FormAdminData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAut.resx">
       <DependentUpon>FormAut.cs</DependentUpon>

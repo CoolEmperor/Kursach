@@ -75,6 +75,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormDelete";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Удаление";
             this.Load += new System.EventHandler(this.FormDelete_Load);
             this.ResumeLayout(false);

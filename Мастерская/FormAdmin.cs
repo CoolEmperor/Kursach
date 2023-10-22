@@ -71,67 +71,78 @@ namespace Мастерская
                 adapter.Fill(table);
                 dataGridView1.DataSource = table;
             }
-            MessageBox.Show("Данные обновлены успешно.");
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(фамилияTextBox.Text) || string.IsNullOrWhiteSpace(имяTextBox.Text) || string.IsNullOrWhiteSpace(логинTextBox.Text)
-                || string.IsNullOrWhiteSpace(парольTextBox.Text) || string.IsNullOrWhiteSpace(телефонTextBox.Text) || string.IsNullOrWhiteSpace(адресTextBox.Text))
+            FormAdminData.surname = "";
+            FormAdminData.name = "";
+            FormAdminData.login = "";
+            FormAdminData.password = "";
+            FormAdminData.role = "";
+            FormAdminData.numtel = "";
+            FormAdminData.adress = "";
+            FormAdminData f = new FormAdminData();
+            f.ShowDialog();
+            try
             {
-                MessageBox.Show("Пожалуйста, заполните все поля.");
-                return;
-            }
-
-            string lastName = фамилияTextBox.Text;
-            string firstName = имяTextBox.Text;
-            string login = логинTextBox.Text;
-            string password = парольTextBox.Text;
-            string role = comboBoxRole.Text;
-            string tel = телефонTextBox.Text;
-            string adress = адресTextBox.Text;
-
-            if (!IsValidName(lastName) || !IsValidName(firstName))
-            {
-                MessageBox.Show("Фамилия и имя должны начинаться с большой буквы и быть на русском языке.");
-                return;
-            }
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                using (SqlCommand command = new SqlCommand("InsertEmployee", connection))
+                bool DeleteBool = FormAdminData.DeleteBool;
+                if (DeleteBool == true)
                 {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@Фамилия", lastName);
-                    command.Parameters.AddWithValue("@Имя", firstName);
-                    command.Parameters.AddWithValue("@Логин", login);
-                    command.Parameters.AddWithValue("@Пароль", password);
-                    command.Parameters.AddWithValue("@Роль", role);
-                    command.Parameters.AddWithValue("@Телефон", tel);
-                    command.Parameters.AddWithValue("@Адрес", adress);
 
-                    command.ExecuteNonQuery();
+                    if (string.IsNullOrWhiteSpace(FormAdminData.surname) || string.IsNullOrWhiteSpace(FormAdminData.name)
+                        || string.IsNullOrWhiteSpace(FormAdminData.login)
+                        || string.IsNullOrWhiteSpace(FormAdminData.password) || string.IsNullOrWhiteSpace(FormAdminData.numtel) 
+                        || string.IsNullOrWhiteSpace(FormAdminData.adress))
+                    {
+                        MessageBox.Show("Пожалуйста, заполните все поля.");
+                        return;
+                    }
+
+                    string lastName = FormAdminData.surname;
+                    string firstName = FormAdminData.name;
+                    string login = FormAdminData.login;
+                    string password = FormAdminData.password;
+                    string role = FormAdminData.role;
+                    string tel = FormAdminData.numtel;
+                    string adress = FormAdminData.adress;
+
+                    if (!IsValidName(lastName) || !IsValidName(firstName))
+                    {
+                        MessageBox.Show("Фамилия и имя должны начинаться с большой буквы и быть на русском языке.");
+                        return;
+                    }
+
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        using (SqlCommand command = new SqlCommand("InsertEmployee", connection))
+                        {
+                            command.CommandType = CommandType.StoredProcedure;
+                            command.Parameters.AddWithValue("@Фамилия", lastName);
+                            command.Parameters.AddWithValue("@Имя", firstName);
+                            command.Parameters.AddWithValue("@Логин", login);
+                            command.Parameters.AddWithValue("@Пароль", password);
+                            command.Parameters.AddWithValue("@Роль", role);
+                            command.Parameters.AddWithValue("@Телефон", tel);
+                            command.Parameters.AddWithValue("@Адрес", adress);
+
+                            command.ExecuteNonQuery();
+                        }
+
+                        FillDataGridView();
+
+                        MessageBox.Show("Данные добавлены успешно.");
+                    }
                 }
-
-                FillDataGridView();
-                ClearInputFields();
-
-                MessageBox.Show("Данные добавлены успешно.");
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Строка не может быть добавление!!!",
+               "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void ClearInputFields()
-        {
-            фамилияTextBox.Clear();
-            имяTextBox.Clear();
-            логинTextBox.Clear();
-            парольTextBox.Clear();
-            телефонTextBox.Clear();
-            адресTextBox.Clear();
-        }
-
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 0)
@@ -139,55 +150,82 @@ namespace Мастерская
                 MessageBox.Show("Пожалуйста, выберите сотрудника для редактирования.");
                 return;
             }
-
-            if (string.IsNullOrWhiteSpace(фамилияTextBox.Text) || string.IsNullOrWhiteSpace(имяTextBox.Text) || string.IsNullOrWhiteSpace(логинTextBox.Text)
-                || string.IsNullOrWhiteSpace(парольTextBox.Text) || string.IsNullOrWhiteSpace(телефонTextBox.Text) || string.IsNullOrWhiteSpace(адресTextBox.Text))
-            {
-                MessageBox.Show("Пожалуйста, заполните все поля.");
-                return;
-            }
-
             int selectedEmployeeId = (int)dataGridView1.CurrentRow.Cells[0].Value;
 
-            string lastName = фамилияTextBox.Text;
-            string firstName = имяTextBox.Text;
-            string login = логинTextBox.Text;
-            string password = парольTextBox.Text;
-            string role = comboBoxRole.Text;
-            string tel = телефонTextBox.Text;
-            string adress = адресTextBox.Text;
-
-            if (!IsValidName(lastName) || !IsValidName(firstName))
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                MessageBox.Show("Фамилия и имя должны начинаться с большой буквы и быть на русском языке.");
-                return;
+                FormAdminData.surname = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                FormAdminData.name = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                FormAdminData.login = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                FormAdminData.password = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                FormAdminData.role = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                FormAdminData.numtel = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+                FormAdminData.adress = dataGridView1.CurrentRow.Cells[7].Value.ToString();
             }
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            FormAdminData f = new FormAdminData();
+            f.ShowDialog();
+            
+            try
             {
-                connection.Open();
-
-                using (SqlCommand command = new SqlCommand("UpdateEmployee", connection))
+                bool DeleteBool = FormAdminData.DeleteBool;
+                if (DeleteBool == true)
                 {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@ИдСотрудника", selectedEmployeeId);
-                    command.Parameters.AddWithValue("@Фамилия", lastName);
-                    command.Parameters.AddWithValue("@Имя", firstName);
-                    command.Parameters.AddWithValue("@Логин", login);
-                    command.Parameters.AddWithValue("@Пароль", password);
-                    command.Parameters.AddWithValue("@Роль", role);
-                    command.Parameters.AddWithValue("@Телефон", tel);
-                    command.Parameters.AddWithValue("@Адрес", adress);
 
-                    command.ExecuteNonQuery();
+                    if (string.IsNullOrWhiteSpace(FormAdminData.surname) || string.IsNullOrWhiteSpace(FormAdminData.name)
+                        || string.IsNullOrWhiteSpace(FormAdminData.login)
+                        || string.IsNullOrWhiteSpace(FormAdminData.password) || string.IsNullOrWhiteSpace(FormAdminData.numtel)
+                        || string.IsNullOrWhiteSpace(FormAdminData.adress))
+                    {
+                        MessageBox.Show("Пожалуйста, заполните все поля.");
+                        return;
+                    }
+
+                    string lastName = FormAdminData.surname;
+                    string firstName = FormAdminData.name;
+                    string login = FormAdminData.login;
+                    string password = FormAdminData.password;
+                    string role = FormAdminData.role;
+                    string tel = FormAdminData.numtel;
+                    string adress = FormAdminData.adress;
+
+                    if (!IsValidName(lastName) || !IsValidName(firstName))
+                    {
+                        MessageBox.Show("Фамилия и имя должны начинаться с большой буквы и быть на русском языке.");
+                        return;
+                    }
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("UpdateEmployee", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@ИдСотрудника", selectedEmployeeId);
+                        command.Parameters.AddWithValue("@Фамилия", lastName);
+                        command.Parameters.AddWithValue("@Имя", firstName);
+                        command.Parameters.AddWithValue("@Логин", login);
+                        command.Parameters.AddWithValue("@Пароль", password);
+                        command.Parameters.AddWithValue("@Роль", role);
+                        command.Parameters.AddWithValue("@Телефон", tel);
+                        command.Parameters.AddWithValue("@Адрес", adress);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    FillDataGridView();
+                    }
+
+
+                MessageBox.Show("Данные изменены успешно.");
                 }
-
-                FillDataGridView();
-                ClearInputFields();
             }
-
-
-            MessageBox.Show("Данные изменены успешно.");
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Строка не может быть добавление!!!",
+               "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
@@ -214,10 +252,9 @@ namespace Мастерская
                         }
 
                         FillDataGridView();
-
-                        MessageBox.Show("Данные удалены успешно.");
                     }
                 }
+                MessageBox.Show("Данные удалены успешно.");
             }
             catch (System.Data.SqlClient.SqlException)
             {
@@ -270,28 +307,6 @@ namespace Мастерская
         {
             string pattern = @"^[А-Я][а-я]+$";
             return Regex.IsMatch(name, pattern);
-        }
-
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            int selectedEmployeeId;
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                selectedEmployeeId = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-
-                фамилияTextBox.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                имяTextBox.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                логинTextBox.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-                парольTextBox.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-                comboBoxRole.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                телефонTextBox.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-                адресTextBox.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
-            }
-        }
-
-        private void buttonClear_Click(object sender, EventArgs e)
-        {
-            ClearInputFields();
         }
     }
 }

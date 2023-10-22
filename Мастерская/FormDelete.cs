@@ -26,7 +26,6 @@ namespace Мастерская
         {
             DeleteBool = true;
             Close();
-
         }
 
         private void buttonNo_Click(object sender, EventArgs e)
