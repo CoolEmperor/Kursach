@@ -81,10 +81,9 @@ namespace Мастерская
             {
                 connection.Open();
 
-                string query = "INSERT INTO [Затраченный_материал] (Название, Стоимость, ИдЗаявки) VALUES (@Название, @Стоимость, @ИдЗаявки)";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlCommand command = new SqlCommand("InsertMaterial", connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@Название", name);
                     command.Parameters.AddWithValue("@Стоимость", cost);
                     command.Parameters.AddWithValue("@ИдЗаявки", zakaz);
@@ -98,6 +97,7 @@ namespace Мастерская
 
                 MessageBox.Show("Данные добавлены успешно.");
             }
+
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
@@ -112,12 +112,10 @@ namespace Мастерская
             {
                 connection.Open();
 
-                string query = "UPDATE [Затраченный_материал] SET Название = @Название, Стоимость = @Стоимость, ИдЗаявки = @ИдЗаявки WHERE ИдМатериала = @ИдМатериала";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlCommand command = new SqlCommand("UpdateMaterial", connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@ИдМатериала", selectedRowId);
-
                     command.Parameters.AddWithValue("@Название", name);
                     command.Parameters.AddWithValue("@Стоимость", cost);
                     command.Parameters.AddWithValue("@ИдЗаявки", zakaz);
@@ -131,6 +129,7 @@ namespace Мастерская
 
                 MessageBox.Show("Данные изменены успешно.");
             }
+
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
@@ -141,18 +140,19 @@ namespace Мастерская
             {
                 connection.Open();
 
-                string query = "DELETE FROM [Затраченный_материал] WHERE ИдМатериала = @ИдМатериала";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlCommand command = new SqlCommand("DeleteMaterial", connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@ИдМатериала", selectedEmployeeId);
+
                     command.ExecuteNonQuery();
                 }
 
                 FillDataGridView();
+
+                MessageBox.Show("Данные удалены успешно.");
             }
 
-            MessageBox.Show("Данные удалены успешно.");
         }
 
         private void textBoxFind_TextChanged(object sender, EventArgs e)
@@ -211,11 +211,12 @@ namespace Мастерская
             {
                 connection.Open();
 
-                string query = $"SELECT * FROM [Затраченный_материал] WHERE ИдМатериала = @ИдМатериала ORDER BY {sortField} {sortOrder}";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlCommand command = new SqlCommand("SortMaterial", connection))
                 {
-                    command.Parameters.AddWithValue("@ИдМатериала", zakaz);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@SortField", sortField);
+                    command.Parameters.AddWithValue("@SortOrder", sortOrder);
+                    command.Parameters.AddWithValue("@Заказ", zakaz);
 
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
                     DataTable table = new DataTable();
@@ -225,6 +226,7 @@ namespace Мастерская
 
                 MessageBox.Show("Данные отсортированы успешно.");
             }
+
         }
 
         private void dataGridView2_SelectionChanged(object sender, EventArgs e)

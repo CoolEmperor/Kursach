@@ -82,10 +82,9 @@ namespace Мастерская
             {
                 connection.Open();
 
-                string query = "INSERT INTO [Работа] (Название, Стоимость, ИдПоломки, ИдЗаявки) VALUES (@Название, @Стоимость, @ИдПоломки, @ИдЗаявки)";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlCommand command = new SqlCommand("AddWork", connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@Название", name);
                     command.Parameters.AddWithValue("@Стоимость", cost);
                     command.Parameters.AddWithValue("@ИдПоломки", polomka);
@@ -95,9 +94,7 @@ namespace Мастерская
                 }
 
                 ClearInputFields();
-
                 FillDataGridView();
-
                 MessageBox.Show("Данные добавлены успешно.");
             }
         }
@@ -108,7 +105,6 @@ namespace Мастерская
             string cost = стоимостьTextBox.Text;
             string polomka = comboBox3.SelectedValue.ToString();
             string zakaz = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            //string zakaz = comboBox4.SelectedValue.ToString();
 
             int selectedRowId = (int)dataGridView2.CurrentRow.Cells[0].Value;
 
@@ -116,12 +112,10 @@ namespace Мастерская
             {
                 connection.Open();
 
-                string query = "UPDATE Работа SET Название = @Название, Стоимость = @Стоимость, ИдПоломки = @ИдПоломки, ИдЗаявки = @ИдЗаявки WHERE ИдРаботы = @ИдРаботы";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlCommand command = new SqlCommand("UpdateWork", connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@ИдРаботы", selectedRowId);
-
                     command.Parameters.AddWithValue("@Название", name);
                     command.Parameters.AddWithValue("@Стоимость", cost);
                     command.Parameters.AddWithValue("@ИдПоломки", polomka);
@@ -131,9 +125,7 @@ namespace Мастерская
                 }
 
                 ClearInputFields();
-
                 FillDataGridView();
-
                 MessageBox.Show("Данные изменены успешно.");
             }
         }
@@ -146,19 +138,17 @@ namespace Мастерская
             {
                 connection.Open();
 
-                string query = "DELETE FROM Работа WHERE ИдРаботы = @ИдРаботы";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlCommand command = new SqlCommand("DeleteWork", connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@ИдРаботы", selectedEmployeeId);
+
                     command.ExecuteNonQuery();
                 }
 
                 FillDataGridView();
+                MessageBox.Show("Данные удалены успешно.");
             }
-
-            MessageBox.Show("Данные удалены успешно.");
-
         }
 
         private void textBoxFind_TextChanged(object sender, EventArgs e)
@@ -177,7 +167,6 @@ namespace Мастерская
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
             if (checkBox1.Checked == true)
             {
                 DataRowView selectedRow = (DataRowView)comboBoxFType.SelectedItem;
@@ -188,7 +177,6 @@ namespace Мастерская
             {
                 fKРаботаИдЗаявки3B75D760BindingSource.RemoveFilter();
             }
-
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
@@ -233,11 +221,12 @@ namespace Мастерская
             {
                 connection.Open();
 
-                string query = $"SELECT * FROM Работа WHERE ИдЗаявки = @ИдЗаявки ORDER BY {sortField} {sortOrder}";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlCommand command = new SqlCommand("SortWorkByField", connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@ИдЗаявки", zakaz);
+                    command.Parameters.AddWithValue("@SortField", sortField);
+                    command.Parameters.AddWithValue("@SortOrder", sortOrder);
 
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
                     DataTable table = new DataTable();
@@ -247,7 +236,6 @@ namespace Мастерская
 
                 MessageBox.Show("Данные отсортированы успешно.");
             }
-
         }
 
         private void dataGridView2_SelectionChanged(object sender, EventArgs e)
