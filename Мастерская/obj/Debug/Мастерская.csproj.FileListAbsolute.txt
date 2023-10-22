@@ -16,7 +16,6 @@ C:\Users\dimas\source\repos\Мастерская\Мастерская\obj\Debug\
 C:\Users\dimas\source\repos\Мастерская\Мастерская\obj\Debug\Мастерская.FormTypeDevice.resources
 C:\Users\dimas\source\repos\Мастерская\Мастерская\obj\Debug\Мастерская.FormModelDevice.resources
 C:\Users\dimas\source\repos\Мастерская\Мастерская\obj\Debug\Мастерская.FormTypeBreak.resources
-C:\Users\dimas\source\repos\Мастерская\Мастерская\obj\Debug\Мастерская.FormOrderAcc.resources
 C:\Users\dimas\source\repos\Мастерская\Мастерская\obj\Debug\Мастерская.FormOrderDiagnostics.resources
 C:\Users\dimas\source\repos\Мастерская\Мастерская\obj\Debug\Мастерская.FormOrderRepair.resources
 C:\Users\dimas\source\repos\Мастерская\Мастерская\obj\Debug\Мастерская.FormWork.resources

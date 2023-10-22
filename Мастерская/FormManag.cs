@@ -47,12 +47,6 @@ namespace Мастерская
             form.Show();
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            FormOrderAcc form = new FormOrderAcc();
-            form.Show();
-        }
-
         private void button7_Click(object sender, EventArgs e)
         {
             FormTypeBreak form = new FormTypeBreak();

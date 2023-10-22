@@ -76,12 +76,6 @@
     <Compile Include="FormModelDevice.Designer.cs">
       <DependentUpon>FormModelDevice.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormOrderAcc.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormOrderAcc.Designer.cs">
-      <DependentUpon>FormOrderAcc.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormOrderDiagnostics.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,9 +139,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormModelDevice.resx">
       <DependentUpon>FormModelDevice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormOrderAcc.resx">
-      <DependentUpon>FormOrderAcc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOrderDiagnostics.resx">
       <DependentUpon>FormOrderDiagnostics.cs</DependentUpon>
