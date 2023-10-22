@@ -35,6 +35,8 @@
             System.Windows.Forms.Label идСотрудникаLabel;
             System.Windows.Forms.Label скидкаLabel;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxЗаявка = new System.Windows.Forms.ComboBox();
+            this.comboBoxСотрудник = new System.Windows.Forms.ComboBox();
             this.дата_началаDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.дата_концаDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.скидкаTextBox = new System.Windows.Forms.TextBox();
@@ -48,28 +50,23 @@
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxFind = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBoxFind = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.мастерскаяDataSet = new Мастерская.МастерскаяDataSet();
-            this.заказнаремонтBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.заказ_на_ремонтTableAdapter = new Мастерская.МастерскаяDataSetTableAdapters.Заказ_на_ремонтTableAdapter();
-            this.сотрудникBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.сотрудникTableAdapter = new Мастерская.МастерскаяDataSetTableAdapters.СотрудникTableAdapter();
             this.номерквитанцииDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.идЗаявкиDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.датаначалаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.датаконцаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.идСотрудникаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.сотрудникBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.мастерскаяDataSet = new Мастерская.МастерскаяDataSet();
             this.скидкаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.стоимостьDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBoxСотрудник = new System.Windows.Forms.ComboBox();
-            this.comboBoxЗаявка = new System.Windows.Forms.ComboBox();
+            this.заказнаремонтBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.заказ_на_ремонтTableAdapter = new Мастерская.МастерскаяDataSetTableAdapters.Заказ_на_ремонтTableAdapter();
+            this.сотрудникTableAdapter = new Мастерская.МастерскаяDataSetTableAdapters.СотрудникTableAdapter();
+            this.заказнадиагностикуBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.заказ_на_диагностикуTableAdapter = new Мастерская.МастерскаяDataSetTableAdapters.Заказ_на_диагностикуTableAdapter();
             идЗаявкиLabel = new System.Windows.Forms.Label();
             дата_началаLabel = new System.Windows.Forms.Label();
             дата_концаLabel = new System.Windows.Forms.Label();
@@ -78,9 +75,10 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.сотрудникBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.мастерскаяDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.заказнаремонтBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.сотрудникBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.заказнадиагностикуBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // идЗаявкиLabel
@@ -152,6 +150,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Добавление, редактирование, удаление";
             // 
+            // comboBoxЗаявка
+            // 
+            this.comboBoxЗаявка.DataSource = this.заказнадиагностикуBindingSource;
+            this.comboBoxЗаявка.DisplayMember = "ИдЗаявки";
+            this.comboBoxЗаявка.FormattingEnabled = true;
+            this.comboBoxЗаявка.Location = new System.Drawing.Point(139, 35);
+            this.comboBoxЗаявка.Name = "comboBoxЗаявка";
+            this.comboBoxЗаявка.Size = new System.Drawing.Size(200, 24);
+            this.comboBoxЗаявка.TabIndex = 31;
+            this.comboBoxЗаявка.ValueMember = "ИдЗаявки";
+            // 
+            // comboBoxСотрудник
+            // 
+            this.comboBoxСотрудник.DataSource = this.сотрудникBindingSource;
+            this.comboBoxСотрудник.DisplayMember = "Фамилия";
+            this.comboBoxСотрудник.FormattingEnabled = true;
+            this.comboBoxСотрудник.Location = new System.Drawing.Point(139, 119);
+            this.comboBoxСотрудник.Name = "comboBoxСотрудник";
+            this.comboBoxСотрудник.Size = new System.Drawing.Size(200, 24);
+            this.comboBoxСотрудник.TabIndex = 30;
+            this.comboBoxСотрудник.ValueMember = "ИдСотрудника";
+            // 
             // дата_началаDateTimePicker
             // 
             this.дата_началаDateTimePicker.Location = new System.Drawing.Point(139, 65);
@@ -221,32 +241,28 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.textBoxFind);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.comboBoxFind);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(1115, 342);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(369, 249);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Поиск, сортировка";
+            this.groupBox2.Text = "Сортировка";
             // 
             // buttonSort
             // 
-            this.buttonSort.Location = new System.Drawing.Point(118, 205);
+            this.buttonSort.Location = new System.Drawing.Point(113, 123);
             this.buttonSort.Name = "buttonSort";
             this.buttonSort.Size = new System.Drawing.Size(147, 33);
             this.buttonSort.TabIndex = 10;
             this.buttonSort.Text = "Сортировать";
             this.buttonSort.UseVisualStyleBackColor = true;
+            this.buttonSort.Click += new System.EventHandler(this.buttonSort_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(41, 178);
+            this.label6.Location = new System.Drawing.Point(36, 96);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 16);
             this.label6.TabIndex = 9;
@@ -255,7 +271,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(41, 148);
+            this.label5.Location = new System.Drawing.Point(36, 66);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 16);
             this.label5.TabIndex = 8;
@@ -267,7 +283,7 @@
             this.comboBox2.Items.AddRange(new object[] {
             "Возрастание",
             "Убывание"});
-            this.comboBox2.Location = new System.Drawing.Point(108, 175);
+            this.comboBox2.Location = new System.Drawing.Point(103, 93);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(195, 24);
             this.comboBox2.TabIndex = 7;
@@ -280,66 +296,19 @@
             "Дата_конца",
             "Скидка",
             "Стоимость"});
-            this.comboBox1.Location = new System.Drawing.Point(108, 145);
+            this.comboBox1.Location = new System.Drawing.Point(103, 63);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(195, 24);
             this.comboBox1.TabIndex = 6;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 78);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 16);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Данные для поиска";
-            // 
-            // textBoxFind
-            // 
-            this.textBoxFind.Location = new System.Drawing.Point(154, 75);
-            this.textBoxFind.Name = "textBoxFind";
-            this.textBoxFind.Size = new System.Drawing.Size(182, 22);
-            this.textBoxFind.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 48);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 16);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Поле";
-            // 
-            // comboBoxFind
-            // 
-            this.comboBoxFind.FormattingEnabled = true;
-            this.comboBoxFind.Items.AddRange(new object[] {
-            "Дата принятия",
-            "Статус",
-            "ФИО_Клиента",
-            "Номер_телефона"});
-            this.comboBoxFind.Location = new System.Drawing.Point(154, 45);
-            this.comboBoxFind.Name = "comboBoxFind";
-            this.comboBoxFind.Size = new System.Drawing.Size(182, 24);
-            this.comboBoxFind.TabIndex = 2;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(105, 117);
+            this.label2.Location = new System.Drawing.Point(100, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(172, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Сортировка по критерию";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(115, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Живой поиск";
             // 
             // label7
             // 
@@ -378,29 +347,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1097, 627);
             this.dataGridView1.TabIndex = 10;
-            // 
-            // мастерскаяDataSet
-            // 
-            this.мастерскаяDataSet.DataSetName = "МастерскаяDataSet";
-            this.мастерскаяDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // заказнаремонтBindingSource
-            // 
-            this.заказнаремонтBindingSource.DataMember = "Заказ_на_ремонт";
-            this.заказнаремонтBindingSource.DataSource = this.мастерскаяDataSet;
-            // 
-            // заказ_на_ремонтTableAdapter
-            // 
-            this.заказ_на_ремонтTableAdapter.ClearBeforeFill = true;
-            // 
-            // сотрудникBindingSource
-            // 
-            this.сотрудникBindingSource.DataMember = "Сотрудник";
-            this.сотрудникBindingSource.DataSource = this.мастерскаяDataSet;
-            // 
-            // сотрудникTableAdapter
-            // 
-            this.сотрудникTableAdapter.ClearBeforeFill = true;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // номерквитанцииDataGridViewTextBoxColumn
             // 
@@ -449,6 +396,16 @@
             this.идСотрудникаDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.идСотрудникаDataGridViewTextBoxColumn.ValueMember = "ИдСотрудника";
             // 
+            // сотрудникBindingSource
+            // 
+            this.сотрудникBindingSource.DataMember = "Сотрудник";
+            this.сотрудникBindingSource.DataSource = this.мастерскаяDataSet;
+            // 
+            // мастерскаяDataSet
+            // 
+            this.мастерскаяDataSet.DataSetName = "МастерскаяDataSet";
+            this.мастерскаяDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // скидкаDataGridViewTextBoxColumn
             // 
             this.скидкаDataGridViewTextBoxColumn.DataPropertyName = "Скидка";
@@ -465,21 +422,27 @@
             this.стоимостьDataGridViewTextBoxColumn.Name = "стоимостьDataGridViewTextBoxColumn";
             this.стоимостьDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // comboBoxСотрудник
+            // заказнаремонтBindingSource
             // 
-            this.comboBoxСотрудник.FormattingEnabled = true;
-            this.comboBoxСотрудник.Location = new System.Drawing.Point(139, 119);
-            this.comboBoxСотрудник.Name = "comboBoxСотрудник";
-            this.comboBoxСотрудник.Size = new System.Drawing.Size(200, 24);
-            this.comboBoxСотрудник.TabIndex = 30;
+            this.заказнаремонтBindingSource.DataMember = "Заказ_на_ремонт";
+            this.заказнаремонтBindingSource.DataSource = this.мастерскаяDataSet;
             // 
-            // comboBoxЗаявка
+            // заказ_на_ремонтTableAdapter
             // 
-            this.comboBoxЗаявка.FormattingEnabled = true;
-            this.comboBoxЗаявка.Location = new System.Drawing.Point(139, 35);
-            this.comboBoxЗаявка.Name = "comboBoxЗаявка";
-            this.comboBoxЗаявка.Size = new System.Drawing.Size(200, 24);
-            this.comboBoxЗаявка.TabIndex = 31;
+            this.заказ_на_ремонтTableAdapter.ClearBeforeFill = true;
+            // 
+            // сотрудникTableAdapter
+            // 
+            this.сотрудникTableAdapter.ClearBeforeFill = true;
+            // 
+            // заказнадиагностикуBindingSource
+            // 
+            this.заказнадиагностикуBindingSource.DataMember = "Заказ_на_диагностику";
+            this.заказнадиагностикуBindingSource.DataSource = this.мастерскаяDataSet;
+            // 
+            // заказ_на_диагностикуTableAdapter
+            // 
+            this.заказ_на_диагностикуTableAdapter.ClearBeforeFill = true;
             // 
             // FormOrderRepair
             // 
@@ -499,9 +462,10 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.сотрудникBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.мастерскаяDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.заказнаремонтBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.сотрудникBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.заказнадиагностикуBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -520,12 +484,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxFind;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBoxFind;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DateTimePicker дата_началаDateTimePicker;
@@ -545,5 +504,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn скидкаDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn стоимостьDataGridViewTextBoxColumn;
         private System.Windows.Forms.ComboBox comboBoxЗаявка;
+        private System.Windows.Forms.BindingSource заказнадиагностикуBindingSource;
+        private МастерскаяDataSetTableAdapters.Заказ_на_диагностикуTableAdapter заказ_на_диагностикуTableAdapter;
     }
 }

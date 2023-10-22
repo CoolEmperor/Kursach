@@ -23,6 +23,8 @@ namespace Мастерская
 
         private void FormOrderRepair_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "мастерскаяDataSet.Заказ_на_диагностику". При необходимости она может быть перемещена или удалена.
+            this.заказ_на_диагностикуTableAdapter.Fill(this.мастерскаяDataSet.Заказ_на_диагностику);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "мастерскаяDataSet.Сотрудник". При необходимости она может быть перемещена или удалена.
             this.сотрудникTableAdapter.Fill(this.мастерскаяDataSet.Сотрудник);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "мастерскаяDataSet.Заказ_на_ремонт". При необходимости она может быть перемещена или удалена.
@@ -80,11 +82,11 @@ namespace Мастерская
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@ИдЗаявки", datestart);
-                    command.Parameters.AddWithValue("@Дата_начала", dateend);
-                    command.Parameters.AddWithValue("@Дата_конца", employe);
-                    command.Parameters.AddWithValue("@ИдСотрудника", disc);
-                    command.Parameters.AddWithValue("@Скидка", zakaz);
+                    command.Parameters.AddWithValue("@ИдЗаявки", zakaz);
+                    command.Parameters.AddWithValue("@Дата_начала", datestart);
+                    command.Parameters.AddWithValue("@Дата_конца", dateend);
+                    command.Parameters.AddWithValue("@ИдСотрудника", employe);
+                    command.Parameters.AddWithValue("@Скидка", disc); 
 
                     command.ExecuteNonQuery();
                 }
@@ -162,6 +164,50 @@ namespace Мастерская
             }
 
             MessageBox.Show("Данные удалены успешно.");
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            int selectedEmployeeId;
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                selectedEmployeeId = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+
+                comboBoxЗаявка.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                дата_началаDateTimePicker.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                дата_концаDateTimePicker.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                comboBoxСотрудник.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                скидкаTextBox.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            }
+        }
+
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            string sortOrder = "";
+            string sortOrder1 = comboBox2.Text;
+            switch (sortOrder1)
+            {
+                case "Возрастание":
+                    sortOrder = "ASC";
+                    break;
+                case "Убывание":
+                    sortOrder = "DESC";
+                    break;
+            }
+            string sortField = comboBox1.Text;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = $"SELECT * FROM [Заказ_на_ремонт] ORDER BY {sortField} {sortOrder}";
+
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                dataGridView1.DataSource = table;
+            }
+            MessageBox.Show("Данные отсортированы успешно.");
         }
     }
 }
