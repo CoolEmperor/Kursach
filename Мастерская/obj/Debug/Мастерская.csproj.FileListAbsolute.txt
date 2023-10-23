@@ -20,3 +20,5 @@ C:\Users\dimas\source\repos\Мастерская\Мастерская\obj\Debug\
 C:\Users\dimas\source\repos\Мастерская\Мастерская\obj\Debug\Мастерская.FormOrderRepair.resources
 C:\Users\dimas\source\repos\Мастерская\Мастерская\obj\Debug\Мастерская.FormWork.resources
 C:\Users\dimas\source\repos\Мастерская\Мастерская\obj\Debug\Мастерская.FormSpentMat.resources
+C:\Users\dimas\source\repos\Мастерская\Мастерская\obj\Debug\Мастерская.FormAdminData.resources
+C:\Users\dimas\source\repos\Мастерская\Мастерская\obj\Debug\Мастерская.FormDelete.resources

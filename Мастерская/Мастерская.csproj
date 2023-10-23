@@ -52,11 +52,23 @@
     <Compile Include="FormAdmin.Designer.cs">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAdminData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdminData.Designer.cs">
+      <DependentUpon>FormAdminData.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAut.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormAut.Designer.cs">
       <DependentUpon>FormAut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDelete.Designer.cs">
+      <DependentUpon>FormDelete.cs</DependentUpon>
     </Compile>
     <Compile Include="FormManag.cs">
       <SubType>Form</SubType>
@@ -128,8 +140,14 @@
     <EmbeddedResource Include="FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAdminData.resx">
+      <DependentUpon>FormAdminData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAut.resx">
       <DependentUpon>FormAut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDelete.resx">
+      <DependentUpon>FormDelete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormManag.resx">
       <DependentUpon>FormManag.cs</DependentUpon>
