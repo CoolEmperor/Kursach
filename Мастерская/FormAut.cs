@@ -85,6 +85,8 @@ namespace Мастерская
                     }
                 }
             }
+            usernameTextBox.Clear();
+            passwordTextBox.Clear();
         }
 
         private void FormAut_Load(object sender, EventArgs e)

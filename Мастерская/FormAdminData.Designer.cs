@@ -64,7 +64,7 @@
             // фамилияLabel
             // 
             фамилияLabel.AutoSize = true;
-            фамилияLabel.Location = new System.Drawing.Point(18, 36);
+            фамилияLabel.Location = new System.Drawing.Point(29, 36);
             фамилияLabel.Name = "фамилияLabel";
             фамилияLabel.Size = new System.Drawing.Size(69, 16);
             фамилияLabel.TabIndex = 3;
@@ -73,7 +73,7 @@
             // имяLabel
             // 
             имяLabel.AutoSize = true;
-            имяLabel.Location = new System.Drawing.Point(18, 64);
+            имяLabel.Location = new System.Drawing.Point(29, 64);
             имяLabel.Name = "имяLabel";
             имяLabel.Size = new System.Drawing.Size(36, 16);
             имяLabel.TabIndex = 5;
@@ -82,7 +82,7 @@
             // логинLabel
             // 
             логинLabel.AutoSize = true;
-            логинLabel.Location = new System.Drawing.Point(18, 92);
+            логинLabel.Location = new System.Drawing.Point(29, 92);
             логинLabel.Name = "логинLabel";
             логинLabel.Size = new System.Drawing.Size(49, 16);
             логинLabel.TabIndex = 7;
@@ -91,7 +91,7 @@
             // парольLabel
             // 
             парольLabel.AutoSize = true;
-            парольLabel.Location = new System.Drawing.Point(18, 120);
+            парольLabel.Location = new System.Drawing.Point(29, 120);
             парольLabel.Name = "парольLabel";
             парольLabel.Size = new System.Drawing.Size(59, 16);
             парольLabel.TabIndex = 9;
@@ -100,7 +100,7 @@
             // рольLabel
             // 
             рольLabel.AutoSize = true;
-            рольLabel.Location = new System.Drawing.Point(18, 148);
+            рольLabel.Location = new System.Drawing.Point(29, 148);
             рольLabel.Name = "рольLabel";
             рольLabel.Size = new System.Drawing.Size(42, 16);
             рольLabel.TabIndex = 11;
@@ -109,7 +109,7 @@
             // телефонLabel
             // 
             телефонLabel.AutoSize = true;
-            телефонLabel.Location = new System.Drawing.Point(18, 176);
+            телефонLabel.Location = new System.Drawing.Point(29, 176);
             телефонLabel.Name = "телефонLabel";
             телефонLabel.Size = new System.Drawing.Size(70, 16);
             телефонLabel.TabIndex = 13;
@@ -118,7 +118,7 @@
             // адресLabel
             // 
             адресLabel.AutoSize = true;
-            адресLabel.Location = new System.Drawing.Point(18, 204);
+            адресLabel.Location = new System.Drawing.Point(29, 204);
             адресLabel.Name = "адресLabel";
             адресLabel.Size = new System.Drawing.Size(50, 16);
             адресLabel.TabIndex = 15;
@@ -155,7 +155,7 @@
             // фамилияTextBox
             // 
             this.фамилияTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.сотрудникBindingSource, "Фамилия", true));
-            this.фамилияTextBox.Location = new System.Drawing.Point(134, 33);
+            this.фамилияTextBox.Location = new System.Drawing.Point(145, 33);
             this.фамилияTextBox.Name = "фамилияTextBox";
             this.фамилияTextBox.Size = new System.Drawing.Size(149, 22);
             this.фамилияTextBox.TabIndex = 4;
@@ -163,7 +163,7 @@
             // имяTextBox
             // 
             this.имяTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.сотрудникBindingSource, "Имя", true));
-            this.имяTextBox.Location = new System.Drawing.Point(134, 61);
+            this.имяTextBox.Location = new System.Drawing.Point(145, 61);
             this.имяTextBox.Name = "имяTextBox";
             this.имяTextBox.Size = new System.Drawing.Size(149, 22);
             this.имяTextBox.TabIndex = 6;
@@ -171,7 +171,7 @@
             // логинTextBox
             // 
             this.логинTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.сотрудникBindingSource, "Логин", true));
-            this.логинTextBox.Location = new System.Drawing.Point(134, 89);
+            this.логинTextBox.Location = new System.Drawing.Point(145, 89);
             this.логинTextBox.Name = "логинTextBox";
             this.логинTextBox.Size = new System.Drawing.Size(149, 22);
             this.логинTextBox.TabIndex = 8;
@@ -179,7 +179,7 @@
             // парольTextBox
             // 
             this.парольTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.сотрудникBindingSource, "Пароль", true));
-            this.парольTextBox.Location = new System.Drawing.Point(134, 117);
+            this.парольTextBox.Location = new System.Drawing.Point(145, 117);
             this.парольTextBox.Name = "парольTextBox";
             this.парольTextBox.Size = new System.Drawing.Size(149, 22);
             this.парольTextBox.TabIndex = 10;
@@ -187,7 +187,7 @@
             // телефонTextBox
             // 
             this.телефонTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.сотрудникBindingSource, "Телефон", true));
-            this.телефонTextBox.Location = new System.Drawing.Point(134, 173);
+            this.телефонTextBox.Location = new System.Drawing.Point(145, 173);
             this.телефонTextBox.Name = "телефонTextBox";
             this.телефонTextBox.Size = new System.Drawing.Size(149, 22);
             this.телефонTextBox.TabIndex = 14;
@@ -195,7 +195,7 @@
             // адресTextBox
             // 
             this.адресTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.сотрудникBindingSource, "Адрес", true));
-            this.адресTextBox.Location = new System.Drawing.Point(134, 201);
+            this.адресTextBox.Location = new System.Drawing.Point(145, 201);
             this.адресTextBox.Name = "адресTextBox";
             this.адресTextBox.Size = new System.Drawing.Size(149, 22);
             this.адресTextBox.TabIndex = 16;
@@ -207,7 +207,7 @@
             "Администратор",
             "Менеджер",
             "Мастер"});
-            this.comboBox1.Location = new System.Drawing.Point(134, 145);
+            this.comboBox1.Location = new System.Drawing.Point(145, 145);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(149, 24);
             this.comboBox1.TabIndex = 17;

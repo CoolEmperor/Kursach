@@ -30,6 +30,19 @@ namespace Мастерская
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.LightGreen;
             dataGridView1.RowHeadersDefaultCellStyle.SelectionBackColor = Color.YellowGreen;
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.YellowGreen;
+
+            label1.Visible = false;
+            label2.Visible = false;
+            textBoxFindFam.Visible = false;
+            textBoxFindLogin.Visible = false;
+            buttonClose.Visible = false;
+
+            label4.Visible = false;
+            label5.Visible = false;
+            comboBoxSort1.Visible = false;
+            comboBoxSort2.Visible = false;
+            buttonSort.Visible = false;
+
         }
 
         private void textBoxFindFam_TextChanged(object sender, EventArgs e)
@@ -307,6 +320,58 @@ namespace Мастерская
         {
             string pattern = @"^[А-Я][а-я]+$";
             return Regex.IsMatch(name, pattern);
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            label4.Visible = false;
+            label5.Visible = false;
+            comboBoxSort1.Visible = false;
+            comboBoxSort2.Visible = false;
+            buttonSort.Visible = false;
+
+            buttonAdd.Visible = true;
+            buttonEdit.Visible = true;
+            buttonDelete.Visible = true;
+            buttonFind.Visible = true;
+            buttonSorted.Visible = true;
+
+            label1.Visible = false;
+            label2.Visible = false;
+            textBoxFindFam.Visible = false;
+            textBoxFindLogin.Visible = false;
+            buttonClose.Visible = false;
+        }
+
+        private void buttonFind_Click(object sender, EventArgs e)
+        {
+            buttonAdd.Visible = false;
+            buttonEdit.Visible = false;
+            buttonDelete.Visible = false;
+            buttonFind.Visible = false;
+            buttonSorted.Visible = false;
+
+            label1.Visible = true;
+            label2.Visible = true;
+            textBoxFindFam.Visible = true;
+            textBoxFindLogin.Visible = true;
+            buttonClose.Visible = true;
+        }
+
+        private void buttonSorted_Click(object sender, EventArgs e)
+        {
+            label4.Visible = true;
+            label5.Visible = true;
+            comboBoxSort1.Visible = true;
+            comboBoxSort2.Visible = true;
+            buttonSort.Visible = true;
+            buttonClose.Visible = true;
+
+            buttonAdd.Visible = false;
+            buttonEdit.Visible = false;
+            buttonDelete.Visible = false;
+            buttonFind.Visible = false;
+            buttonSorted.Visible = false;
         }
     }
 }

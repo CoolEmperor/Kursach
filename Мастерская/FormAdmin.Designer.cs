@@ -55,6 +55,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxFindFam = new System.Windows.Forms.TextBox();
+            this.buttonFind = new System.Windows.Forms.Button();
+            this.buttonSorted = new System.Windows.Forms.Button();
+            this.buttonClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.сотрудникBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.мастерскаяDataSet)).BeginInit();
@@ -215,7 +218,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.groupBox1.Controls.Add(this.buttonClose);
+            this.groupBox1.Controls.Add(this.buttonSorted);
+            this.groupBox1.Controls.Add(this.buttonFind);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.buttonSort);
             this.groupBox1.Controls.Add(this.buttonDelete);
@@ -238,7 +244,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(889, 25);
+            this.label5.Location = new System.Drawing.Point(527, 27);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 16);
             this.label5.TabIndex = 9;
@@ -246,7 +252,7 @@
             // 
             // buttonSort
             // 
-            this.buttonSort.Location = new System.Drawing.Point(1097, 31);
+            this.buttonSort.Location = new System.Drawing.Point(735, 33);
             this.buttonSort.Name = "buttonSort";
             this.buttonSort.Size = new System.Drawing.Size(155, 33);
             this.buttonSort.TabIndex = 8;
@@ -264,7 +270,7 @@
             "Роль",
             "Телефон",
             "Адрес"});
-            this.comboBoxSort1.Location = new System.Drawing.Point(936, 22);
+            this.comboBoxSort1.Location = new System.Drawing.Point(574, 24);
             this.comboBoxSort1.Name = "comboBoxSort1";
             this.comboBoxSort1.Size = new System.Drawing.Size(155, 24);
             this.comboBoxSort1.TabIndex = 7;
@@ -275,7 +281,7 @@
             this.comboBoxSort2.Items.AddRange(new object[] {
             "Возрастание",
             "Убывание"});
-            this.comboBoxSort2.Location = new System.Drawing.Point(936, 52);
+            this.comboBoxSort2.Location = new System.Drawing.Point(574, 54);
             this.comboBoxSort2.Name = "comboBoxSort2";
             this.comboBoxSort2.Size = new System.Drawing.Size(155, 24);
             this.comboBoxSort2.TabIndex = 6;
@@ -283,7 +289,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(898, 55);
+            this.label4.Location = new System.Drawing.Point(536, 57);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 16);
             this.label4.TabIndex = 5;
@@ -322,6 +328,36 @@
             this.textBoxFindFam.Size = new System.Drawing.Size(160, 22);
             this.textBoxFindFam.TabIndex = 2;
             this.textBoxFindFam.TextChanged += new System.EventHandler(this.textBoxFindFam_TextChanged);
+            // 
+            // buttonFind
+            // 
+            this.buttonFind.Location = new System.Drawing.Point(541, 32);
+            this.buttonFind.Name = "buttonFind";
+            this.buttonFind.Size = new System.Drawing.Size(155, 32);
+            this.buttonFind.TabIndex = 21;
+            this.buttonFind.Text = "Поиск";
+            this.buttonFind.UseVisualStyleBackColor = true;
+            this.buttonFind.Click += new System.EventHandler(this.buttonFind_Click);
+            // 
+            // buttonSorted
+            // 
+            this.buttonSorted.Location = new System.Drawing.Point(707, 33);
+            this.buttonSorted.Name = "buttonSorted";
+            this.buttonSorted.Size = new System.Drawing.Size(155, 32);
+            this.buttonSorted.TabIndex = 21;
+            this.buttonSorted.Text = "Сортировка";
+            this.buttonSorted.UseVisualStyleBackColor = true;
+            this.buttonSorted.Click += new System.EventHandler(this.buttonSorted_Click);
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.Location = new System.Drawing.Point(906, 34);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(155, 32);
+            this.buttonClose.TabIndex = 22;
+            this.buttonClose.Text = "Назад";
+            this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // FormAdmin
             // 
@@ -371,5 +407,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn рольDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn телефонDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn адресDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.Button buttonSorted;
+        private System.Windows.Forms.Button buttonFind;
     }
 }
