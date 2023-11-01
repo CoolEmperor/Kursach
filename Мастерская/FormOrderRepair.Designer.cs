@@ -36,7 +36,10 @@
             System.Windows.Forms.Label скидкаLabel;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBoxЗаявка = new System.Windows.Forms.ComboBox();
+            this.заказнадиагностикуBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.мастерскаяDataSet = new Мастерская.МастерскаяDataSet();
             this.comboBoxСотрудник = new System.Windows.Forms.ComboBox();
+            this.сотрудникBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.дата_началаDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.дата_концаDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.скидкаTextBox = new System.Windows.Forms.TextBox();
@@ -58,27 +61,25 @@
             this.датаначалаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.датаконцаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.идСотрудникаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.сотрудникBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.мастерскаяDataSet = new Мастерская.МастерскаяDataSet();
             this.скидкаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.стоимостьDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.заказнаремонтBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.заказ_на_ремонтTableAdapter = new Мастерская.МастерскаяDataSetTableAdapters.Заказ_на_ремонтTableAdapter();
             this.сотрудникTableAdapter = new Мастерская.МастерскаяDataSetTableAdapters.СотрудникTableAdapter();
-            this.заказнадиагностикуBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.заказ_на_диагностикуTableAdapter = new Мастерская.МастерскаяDataSetTableAdapters.Заказ_на_диагностикуTableAdapter();
+            this.buttonReport = new System.Windows.Forms.Button();
             идЗаявкиLabel = new System.Windows.Forms.Label();
             дата_началаLabel = new System.Windows.Forms.Label();
             дата_концаLabel = new System.Windows.Forms.Label();
             идСотрудникаLabel = new System.Windows.Forms.Label();
             скидкаLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.заказнадиагностикуBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.мастерскаяDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.сотрудникBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.сотрудникBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.мастерскаяDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.заказнаремонтBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.заказнадиагностикуBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // идЗаявкиLabel
@@ -161,6 +162,16 @@
             this.comboBoxЗаявка.TabIndex = 31;
             this.comboBoxЗаявка.ValueMember = "ИдЗаявки";
             // 
+            // заказнадиагностикуBindingSource
+            // 
+            this.заказнадиагностикуBindingSource.DataMember = "Заказ_на_диагностику";
+            this.заказнадиагностикуBindingSource.DataSource = this.мастерскаяDataSet;
+            // 
+            // мастерскаяDataSet
+            // 
+            this.мастерскаяDataSet.DataSetName = "МастерскаяDataSet";
+            this.мастерскаяDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // comboBoxСотрудник
             // 
             this.comboBoxСотрудник.DataSource = this.сотрудникBindingSource;
@@ -171,6 +182,11 @@
             this.comboBoxСотрудник.Size = new System.Drawing.Size(200, 24);
             this.comboBoxСотрудник.TabIndex = 30;
             this.comboBoxСотрудник.ValueMember = "ИдСотрудника";
+            // 
+            // сотрудникBindingSource
+            // 
+            this.сотрудникBindingSource.DataMember = "Сотрудник";
+            this.сотрудникBindingSource.DataSource = this.мастерскаяDataSet;
             // 
             // дата_началаDateTimePicker
             // 
@@ -244,7 +260,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(1115, 342);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(369, 249);
+            this.groupBox2.Size = new System.Drawing.Size(369, 172);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Сортировка";
@@ -396,16 +412,6 @@
             this.идСотрудникаDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.идСотрудникаDataGridViewTextBoxColumn.ValueMember = "ИдСотрудника";
             // 
-            // сотрудникBindingSource
-            // 
-            this.сотрудникBindingSource.DataMember = "Сотрудник";
-            this.сотрудникBindingSource.DataSource = this.мастерскаяDataSet;
-            // 
-            // мастерскаяDataSet
-            // 
-            this.мастерскаяDataSet.DataSetName = "МастерскаяDataSet";
-            this.мастерскаяDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // скидкаDataGridViewTextBoxColumn
             // 
             this.скидкаDataGridViewTextBoxColumn.DataPropertyName = "Скидка";
@@ -435,20 +441,26 @@
             // 
             this.сотрудникTableAdapter.ClearBeforeFill = true;
             // 
-            // заказнадиагностикуBindingSource
-            // 
-            this.заказнадиагностикуBindingSource.DataMember = "Заказ_на_диагностику";
-            this.заказнадиагностикуBindingSource.DataSource = this.мастерскаяDataSet;
-            // 
             // заказ_на_диагностикуTableAdapter
             // 
             this.заказ_на_диагностикуTableAdapter.ClearBeforeFill = true;
+            // 
+            // buttonReport
+            // 
+            this.buttonReport.Location = new System.Drawing.Point(1184, 541);
+            this.buttonReport.Name = "buttonReport";
+            this.buttonReport.Size = new System.Drawing.Size(229, 45);
+            this.buttonReport.TabIndex = 11;
+            this.buttonReport.Text = "Сформировать квитанцию";
+            this.buttonReport.UseVisualStyleBackColor = true;
+            this.buttonReport.Click += new System.EventHandler(this.buttonReport_Click);
             // 
             // FormOrderRepair
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1496, 648);
+            this.Controls.Add(this.buttonReport);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox2);
@@ -459,13 +471,13 @@
             this.Load += new System.EventHandler(this.FormOrderRepair_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.заказнадиагностикуBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.мастерскаяDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.сотрудникBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.сотрудникBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.мастерскаяDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.заказнаремонтBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.заказнадиагностикуBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -506,5 +518,6 @@
         private System.Windows.Forms.ComboBox comboBoxЗаявка;
         private System.Windows.Forms.BindingSource заказнадиагностикуBindingSource;
         private МастерскаяDataSetTableAdapters.Заказ_на_диагностикуTableAdapter заказ_на_диагностикуTableAdapter;
+        private System.Windows.Forms.Button buttonReport;
     }
 }

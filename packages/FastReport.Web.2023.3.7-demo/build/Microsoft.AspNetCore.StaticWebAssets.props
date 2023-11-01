@@ -1,0 +1,11 @@
+﻿<Project>
+  <ItemGroup Condition="$(TargetFrameworkIdentifier) == '.NETCoreApp' And $(TargetFrameworkVersion.Substring(1)) >= '3.1'" >
+    <StaticWebAsset Include="$(MSBuildThisFileDirectory)..\staticwebassets\**\*.*">
+      <SourceType>Package</SourceType>
+      <SourceId>FastReport.Web</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FastReport.Web</BasePath>
+      <RelativePath>%(RecursiveDir)%(Filename)%(Extension)</RelativePath>
+    </StaticWebAsset>
+  </ItemGroup>
+</Project>

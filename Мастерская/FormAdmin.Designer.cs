@@ -46,6 +46,9 @@
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonClose = new System.Windows.Forms.Button();
+            this.buttonSorted = new System.Windows.Forms.Button();
+            this.buttonFind = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.buttonSort = new System.Windows.Forms.Button();
             this.comboBoxSort1 = new System.Windows.Forms.ComboBox();
@@ -55,9 +58,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxFindFam = new System.Windows.Forms.TextBox();
-            this.buttonFind = new System.Windows.Forms.Button();
-            this.buttonSorted = new System.Windows.Forms.Button();
-            this.buttonClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.сотрудникBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.мастерскаяDataSet)).BeginInit();
@@ -198,7 +198,7 @@
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(216, 33);
+            this.buttonEdit.Location = new System.Drawing.Point(216, 32);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(155, 32);
             this.buttonEdit.TabIndex = 18;
@@ -240,6 +240,36 @@
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Работа с данными";
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.Location = new System.Drawing.Point(906, 34);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(155, 32);
+            this.buttonClose.TabIndex = 22;
+            this.buttonClose.Text = "Назад";
+            this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            // 
+            // buttonSorted
+            // 
+            this.buttonSorted.Location = new System.Drawing.Point(699, 32);
+            this.buttonSorted.Name = "buttonSorted";
+            this.buttonSorted.Size = new System.Drawing.Size(155, 32);
+            this.buttonSorted.TabIndex = 21;
+            this.buttonSorted.Text = "Сортировка";
+            this.buttonSorted.UseVisualStyleBackColor = true;
+            this.buttonSorted.Click += new System.EventHandler(this.buttonSorted_Click);
+            // 
+            // buttonFind
+            // 
+            this.buttonFind.Location = new System.Drawing.Point(538, 32);
+            this.buttonFind.Name = "buttonFind";
+            this.buttonFind.Size = new System.Drawing.Size(155, 32);
+            this.buttonFind.TabIndex = 21;
+            this.buttonFind.Text = "Поиск";
+            this.buttonFind.UseVisualStyleBackColor = true;
+            this.buttonFind.Click += new System.EventHandler(this.buttonFind_Click);
             // 
             // label5
             // 
@@ -328,36 +358,6 @@
             this.textBoxFindFam.Size = new System.Drawing.Size(160, 22);
             this.textBoxFindFam.TabIndex = 2;
             this.textBoxFindFam.TextChanged += new System.EventHandler(this.textBoxFindFam_TextChanged);
-            // 
-            // buttonFind
-            // 
-            this.buttonFind.Location = new System.Drawing.Point(541, 32);
-            this.buttonFind.Name = "buttonFind";
-            this.buttonFind.Size = new System.Drawing.Size(155, 32);
-            this.buttonFind.TabIndex = 21;
-            this.buttonFind.Text = "Поиск";
-            this.buttonFind.UseVisualStyleBackColor = true;
-            this.buttonFind.Click += new System.EventHandler(this.buttonFind_Click);
-            // 
-            // buttonSorted
-            // 
-            this.buttonSorted.Location = new System.Drawing.Point(707, 33);
-            this.buttonSorted.Name = "buttonSorted";
-            this.buttonSorted.Size = new System.Drawing.Size(155, 32);
-            this.buttonSorted.TabIndex = 21;
-            this.buttonSorted.Text = "Сортировка";
-            this.buttonSorted.UseVisualStyleBackColor = true;
-            this.buttonSorted.Click += new System.EventHandler(this.buttonSorted_Click);
-            // 
-            // buttonClose
-            // 
-            this.buttonClose.Location = new System.Drawing.Point(906, 34);
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(155, 32);
-            this.buttonClose.TabIndex = 22;
-            this.buttonClose.Text = "Назад";
-            this.buttonClose.UseVisualStyleBackColor = true;
-            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // FormAdmin
             // 

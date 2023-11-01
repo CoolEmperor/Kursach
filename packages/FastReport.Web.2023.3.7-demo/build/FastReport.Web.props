@@ -1,0 +1,8 @@
+﻿<Project InitialTargets="_DebugMode">
+  <Target Name="_DebugMode" Condition="$(_frDebug) != '' And $(_frDebug) == 'true'">
+    <Message Importance="high" Text="TargetFrameworkIdentifier: $(TargetFrameworkIdentifier)"/>
+    <Message Importance="high" Text="TargetFrameworkVersion: $(TargetFrameworkVersion.Substring(1))" />
+  </Target>
+
+  <Import Project="Microsoft.AspNetCore.StaticWebAssets.props" />
+</Project>
