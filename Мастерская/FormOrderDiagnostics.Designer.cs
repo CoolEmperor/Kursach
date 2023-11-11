@@ -53,6 +53,9 @@
             this.вид_техникиTableAdapter = new Мастерская.МастерскаяDataSetTableAdapters.Вид_техникиTableAdapter();
             this.сотрудникTableAdapter = new Мастерская.МастерскаяDataSetTableAdapters.СотрудникTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.КлиентTextBox = new System.Windows.Forms.TextBox();
+            this.номер_телефонаTextBox = new System.Windows.Forms.TextBox();
+            this.статусTextBox = new System.Windows.Forms.TextBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.видтехникиBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.СотрудникComboBox = new System.Windows.Forms.ComboBox();
@@ -78,9 +81,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.статусTextBox = new System.Windows.Forms.TextBox();
-            this.номер_телефонаTextBox = new System.Windows.Forms.TextBox();
-            this.КлиентTextBox = new System.Windows.Forms.TextBox();
             дата_принятияLabel = new System.Windows.Forms.Label();
             идВидаLabel = new System.Windows.Forms.Label();
             дата_выдачиLabel = new System.Windows.Forms.Label();
@@ -330,6 +330,27 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Добавление, редактирование, удаление";
+            // 
+            // КлиентTextBox
+            // 
+            this.КлиентTextBox.Location = new System.Drawing.Point(133, 168);
+            this.КлиентTextBox.Name = "КлиентTextBox";
+            this.КлиентTextBox.Size = new System.Drawing.Size(200, 22);
+            this.КлиентTextBox.TabIndex = 36;
+            // 
+            // номер_телефонаTextBox
+            // 
+            this.номер_телефонаTextBox.Location = new System.Drawing.Point(133, 196);
+            this.номер_телефонаTextBox.Name = "номер_телефонаTextBox";
+            this.номер_телефонаTextBox.Size = new System.Drawing.Size(200, 22);
+            this.номер_телефонаTextBox.TabIndex = 35;
+            // 
+            // статусTextBox
+            // 
+            this.статусTextBox.Location = new System.Drawing.Point(133, 110);
+            this.статусTextBox.Name = "статусTextBox";
+            this.статусTextBox.Size = new System.Drawing.Size(200, 22);
+            this.статусTextBox.TabIndex = 34;
             // 
             // comboBox3
             // 
@@ -584,27 +605,6 @@
             this.label7.Size = new System.Drawing.Size(226, 27);
             this.label7.TabIndex = 8;
             this.label7.Text = "Мастерская \"СделаНо\"";
-            // 
-            // статусTextBox
-            // 
-            this.статусTextBox.Location = new System.Drawing.Point(133, 110);
-            this.статусTextBox.Name = "статусTextBox";
-            this.статусTextBox.Size = new System.Drawing.Size(200, 22);
-            this.статусTextBox.TabIndex = 34;
-            // 
-            // номер_телефонаTextBox
-            // 
-            this.номер_телефонаTextBox.Location = new System.Drawing.Point(133, 196);
-            this.номер_телефонаTextBox.Name = "номер_телефонаTextBox";
-            this.номер_телефонаTextBox.Size = new System.Drawing.Size(200, 22);
-            this.номер_телефонаTextBox.TabIndex = 35;
-            // 
-            // КлиентTextBox
-            // 
-            this.КлиентTextBox.Location = new System.Drawing.Point(133, 168);
-            this.КлиентTextBox.Name = "КлиентTextBox";
-            this.КлиентTextBox.Size = new System.Drawing.Size(200, 22);
-            this.КлиентTextBox.TabIndex = 36;
             // 
             // FormOrderDiagnostics
             // 

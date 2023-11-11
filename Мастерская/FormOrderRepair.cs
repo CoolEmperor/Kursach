@@ -4,6 +4,10 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 using FastReport;
+using FastReport.Data;
+using FastReport.RichTextParser;
+using Microsoft.Graph.Models;
+using Report = FastReport.Report;
 
 namespace Мастерская
 {
@@ -208,32 +212,30 @@ namespace Мастерская
         private void buttonReport_Click(object sender, EventArgs e)
         {
             int orderId = (int)dataGridView1.CurrentRow.Cells[1].Value;
-
+            string query = "SELECT Заказ_на_ремонт.*, Заказ_на_диагностику.*, Вид_техники.*, Работа.* " +
+                               "FROM Заказ_на_диагностику " +
+                               "JOIN Вид_техники ON Заказ_на_диагностику.ИдВида = Вид_техники.ИдВида " +
+                               "JOIN Заказ_на_ремонт ON Заказ_на_диагностику.ИдЗаявки = Заказ_на_ремонт.ИдЗаявки " +
+                               "JOIN Работа ON Заказ_на_диагностику.ИдЗаявки = Работа.ИдЗаявки " +
+                               "WHERE Заказ_на_диагностику.ИдЗаявки = OrderId";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-
-                string query = "SELECT Заказ_на_ремонт.*, Заказ_на_диагностику.*, Вид_техники.*, Работа.* " +
-                                   "FROM Заказ_на_диагностику " +
-                                   "JOIN Вид_техники ON Заказ_на_диагностику.ИдВида = Вид_техники.ИдВида " +
-                                   "JOIN Заказ_на_ремонт ON Заказ_на_диагностику.ИдЗаявки = Заказ_на_ремонт.ИдЗаявки " +
-                                   "JOIN Работа ON Заказ_на_диагностику.ИдЗаявки = Работа.ИдЗаявки " +
-                                   "WHERE Заказ_на_диагностику.ИдЗаявки = @OrderId";
-                // Создание команды SQL
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@OrderId", orderId);
-
                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
-                        DataTable dataSet = new DataTable();
-                        adapter.Fill(dataSet);
-
+                        DataSet data = new DataSet();
+                        adapter.Fill(data);
                         Report report = new Report();
-                        report.Load("C:\\Users\\dimas\\OneDrive\\Рабочий стол\\Отчет.frx"); // Замените на фактический путь
-
-                        report.RegisterData(dataSet, "DataSet");
-
+                        report.Load("C:\\Users\\dimas\\OneDrive\\Рабочий стол\\Отчет.frx");
+                        report.RegisterData(data);
+                        report.Prepare();
+                        using (var export = new FastReport.Export.Pdf.PDFExport())
+                        {
+                            export.Export(report, "Квитанция.pdf");
+                        }
                     }
                 }
             }

@@ -24,19 +24,16 @@ namespace Мастерская
             string username = usernameTextBox.Text;
             string password = passwordTextBox.Text;
 
-            // Подключение к базе данных
             string connectionString = "Data Source=DMITRYBUGAI-LAP\\SQLEXPRESS;Initial Catalog=Мастерская;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                // Проверка на наличие первого администратора
                 SqlCommand checkAdminQuery = new SqlCommand("SELECT COUNT(*) FROM Сотрудник WHERE Роль = 'Администратор'", connection);
                 int adminCount = (int)checkAdminQuery.ExecuteScalar();
 
                 if (adminCount == 0)
                 {
-                    // Если первого администратора нет, создаем его
                     SqlCommand createAdminQuery = new SqlCommand("INSERT INTO Сотрудник (Фамилия, Имя, Логин, Пароль, Роль, Телефон, Адрес) VALUES (@Фамилия, @Имя, @Логин, @Пароль, 'Администратор', @Телефон, @Адрес)", connection);
                     createAdminQuery.Parameters.AddWithValue("@Фамилия", "Admin");
                     createAdminQuery.Parameters.AddWithValue("@Имя", "Admin");
@@ -47,7 +44,6 @@ namespace Мастерская
                     createAdminQuery.ExecuteNonQuery();
                 }
 
-                // Проверка логина и пароля
                 SqlCommand loginQuery = new SqlCommand("SELECT ИдСотрудника, Роль FROM Сотрудник WHERE Логин = @Логин AND Пароль = @Пароль", connection);
                 loginQuery.Parameters.AddWithValue("@Логин", username);
                 loginQuery.Parameters.AddWithValue("@Пароль", password);
@@ -58,21 +54,17 @@ namespace Мастерская
                     {
                         string role = reader["Роль"].ToString();
 
-                        // В зависимости от роли переходите на соответствующую форму
                         switch (role)
                         {
                             case "Администратор":
-                                // Откройте форму для администратора
                                 FormAdmin adminForm = new FormAdmin();
                                 adminForm.Show();
                                 break;
                             case "Менеджер":
-                                // Откройте форму для менеджера
                                 FormManag managerForm = new FormManag();
                                 managerForm.Show();
                                 break;
                             case "Мастер":
-                                // Откройте форму для мастера
                                 FormMaster masterForm = new FormMaster();
                                 masterForm.Show();
                                 break;
@@ -80,7 +72,6 @@ namespace Мастерская
                     }
                     else
                     {
-                        // Пользователь не найден или неверные учетные данные
                         MessageBox.Show("Неверный логин или пароль");
                     }
                 }
